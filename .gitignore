@@ -1,11 +1,12 @@
 # Environment variables and secrets
 .env
 .env.*
-!.env.example
 backend/.env
 backend/.env.*
 frontend/.env.local
 frontend/.env.*.local
+!.env.example
+!**/.env.example
 
 # Python
 backend/.venv/

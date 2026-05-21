@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 import sqlite3
 
@@ -5,7 +6,18 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
 
-DB_PATH = Path(__file__).resolve().parent.parent / "copilot.db"
+def _database_path() -> Path:
+    configured_path = os.getenv("LIA_DATABASE_PATH")
+    if configured_path:
+        return Path(configured_path)
+
+    if os.getenv("VERCEL"):
+        return Path("/tmp/copilot.db")
+
+    return Path(__file__).resolve().parent.parent / "copilot.db"
+
+
+DB_PATH = _database_path()
 SQLALCHEMY_DATABASE_URL = f"sqlite:///{DB_PATH.as_posix()}"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
