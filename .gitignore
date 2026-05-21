@@ -1,9 +1,39 @@
-backend/.venv/
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
 backend/.env
-backend/copilot.db
+backend/.env.*
+frontend/.env.local
+frontend/.env.*.local
+
+# Python
+backend/.venv/
+backend/venv/
+backend/__pycache__/
 backend/app/**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Local databases and generated data
+backend/copilot.db
+*.sqlite
+*.sqlite3
+
+# Node / Vite
 frontend/node_modules/
 frontend/dist/
-frontend/.env.local
+frontend/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Deployment metadata
+.vercel/
+
+# OS / editor files
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
