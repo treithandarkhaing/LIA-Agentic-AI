@@ -1,0 +1,9 @@
+backend/.venv/
+backend/.env
+backend/copilot.db
+backend/app/**/__pycache__/
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+.DS_Store
+Thumbs.db

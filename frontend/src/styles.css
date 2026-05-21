@@ -1,0 +1,832 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   LIA AGENTIC AI — COMPETITION DESIGN SYSTEM
+   Theme: Neural Command Interface | Dark & Light
+   ============================================================ */
+
+:root {
+  color-scheme: dark;
+
+  /* Backgrounds */
+  --bg:             #020b18;
+  --bg-secondary:   #051326;
+  --bg-tertiary:    #071a34;
+  --surface:        rgba(6, 20, 42, 0.92);
+  --surface-hover:  rgba(8, 26, 54, 0.96);
+
+  /* Cards */
+  --card:           rgba(8, 22, 46, 0.82);
+  --card-hover:     rgba(10, 28, 58, 0.92);
+  --card-border:    rgba(0, 212, 255, 0.10);
+  --card-border-hover: rgba(0, 212, 255, 0.24);
+
+  /* Brand Neon Palette */
+  --neon:           #00d4ff;        /* Electric cyan — primary accent */
+  --neon-dim:       rgba(0, 212, 255, 0.14);
+  --neon-glow:      rgba(0, 212, 255, 0.28);
+  --neon-strong:    rgba(0, 212, 255, 0.55);
+  --violet:         #7c3aed;        /* AI purple */
+  --violet-dim:     rgba(124, 58, 237, 0.15);
+  --emerald:        #00ffa3;        /* Online/live status */
+  --emerald-dim:    rgba(0, 255, 163, 0.12);
+  --amber:          #fbbf24;        /* Warning/alert */
+  --amber-dim:      rgba(251, 191, 36, 0.14);
+  --rose:           #fb4b6e;        /* Risk/error */
+  --rose-dim:       rgba(251, 75, 110, 0.14);
+
+  /* Text */
+  --text-primary:   #e8f4ff;
+  --text-secondary: #8badc8;
+  --text-muted:     rgba(139, 173, 200, 0.58);
+  --text-neon:      #00d4ff;
+
+  /* Borders */
+  --border:         rgba(0, 212, 255, 0.08);
+  --border-strong:  rgba(0, 212, 255, 0.18);
+  --border-subtle:  rgba(255, 255, 255, 0.05);
+
+  /* Glows & Shadows */
+  --shadow-neon:    0 0 40px rgba(0, 212, 255, 0.12), 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-card:    0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 212, 255, 0.05);
+  --glow-neon:      0 0 0 1px rgba(0, 212, 255, 0.18), 0 0 24px rgba(0, 212, 255, 0.1);
+
+  /* Sidebar */
+  --sidebar-bg:     rgba(3, 12, 26, 0.97);
+  --sidebar-width:  280px;
+}
+
+/* ============================================================
+   LIGHT THEME — Clean intelligence, reduced drama
+   ============================================================ */
+.light {
+  color-scheme: light;
+
+  /* Backgrounds — clean white-blue palette */
+  --bg:             #f4f8ff;
+  --bg-secondary:   #eaf1fb;
+  --bg-tertiary:    #dde8f6;
+  --surface:        #ffffff;
+  --surface-hover:  #f8fbff;
+  --card:           #ffffff;
+  --card-hover:     #f8fbff;
+  --card-border:    rgba(14, 100, 180, 0.15);
+  --card-border-hover: rgba(14, 100, 180, 0.35);
+
+  /* Brand colors — deep, high-contrast for light bg */
+  --neon:           #005fa3;        /* Deep blue — very readable on white */
+  --neon-dim:       rgba(0, 95, 163, 0.10);
+  --neon-glow:      rgba(0, 95, 163, 0.18);
+  --neon-strong:    rgba(0, 95, 163, 0.40);
+  --violet:         #5b21b6;
+  --violet-dim:     rgba(91, 33, 182, 0.10);
+  --emerald:        #047857;
+  --emerald-dim:    rgba(4, 120, 87, 0.10);
+  --amber:          #b45309;
+  --amber-dim:      rgba(180, 83, 9, 0.10);
+  --rose:           #be123c;
+  --rose-dim:       rgba(190, 18, 60, 0.09);
+
+  /* Text — maximum contrast for older readers */
+  --text-primary:   #0a1929;        /* Near black — highest contrast */
+  --text-secondary: #1e3a5f;        /* Dark navy — very readable */
+  --text-muted:     #4a6580;        /* Medium blue-grey — still clear */
+  --text-neon:      #005fa3;
+
+  /* Borders */
+  --border:         rgba(14, 100, 180, 0.18);
+  --border-strong:  rgba(14, 100, 180, 0.30);
+  --border-subtle:  rgba(14, 100, 180, 0.10);
+
+  /* Shadows */
+  --shadow-neon:    0 0 20px rgba(0, 95, 163, 0.08), 0 8px 32px rgba(0, 0, 0, 0.10);
+  --shadow-card:    0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 95, 163, 0.08);
+  --glow-neon:      0 0 0 1px rgba(0, 95, 163, 0.20), 0 0 16px rgba(0, 95, 163, 0.08);
+
+  /* Sidebar */
+  --sidebar-bg:     #edf3fc;
+}
+
+/* ============================================================
+   BASE RESET
+   ============================================================ */
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  font-family: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px; /* Slightly larger base for accessibility */
+}
+
+/* Light mode base — larger, cleaner text for readability */
+.light body,
+.light {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   NEURAL BACKGROUND — the signature visual
+   ============================================================ */
+.neural-bg {
+  position: relative;
+  isolation: isolate;
+  background: var(--bg);
+  transition: background 300ms ease, color 300ms ease;
+}
+
+/* Deep space radial layers — dark mode */
+.neural-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 212, 255, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 90%, rgba(124, 58, 237, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 60% at -10% 50%, rgba(0, 212, 255, 0.04) 0%, transparent 50%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-secondary) 100%);
+}
+
+/* Light mode radial — softer blue tones, no dark */
+.light .neural-bg::before,
+.light.neural-bg::before {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 95, 163, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 90%, rgba(91, 33, 182, 0.04) 0%, transparent 50%),
+    linear-gradient(180deg, #f4f8ff 0%, #eaf1fb 100%);
+}
+
+/* Grid dot pattern */
+.neural-bg::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(0, 212, 255, 0.08) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.08) 60%, transparent 100%);
+}
+
+/* ============================================================
+   GLASSMORPHISM
+   ============================================================ */
+.glass {
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%), var(--surface);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), var(--shadow-card);
+  transition: background 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.glass-strong {
+  border: 1px solid var(--border-strong);
+  background: linear-gradient(145deg, rgba(0, 212, 255, 0.04) 0%, rgba(255,255,255,0.01) 100%), var(--surface);
+  backdrop-filter: blur(32px) saturate(150%);
+  -webkit-backdrop-filter: blur(32px) saturate(150%);
+  box-shadow: inset 0 1px 0 rgba(0, 212, 255, 0.06), var(--glow-neon), var(--shadow-card);
+}
+
+/* ============================================================
+   AGENT CARDS — core UI element
+   ============================================================ */
+.agent-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  background: linear-gradient(145deg, rgba(0, 212, 255, 0.03) 0%, rgba(255,255,255,0.01) 100%), var(--card);
+  backdrop-filter: blur(20px) saturate(130%);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.agent-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.agent-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-border-hover);
+  box-shadow: var(--shadow-neon), var(--shadow-card);
+}
+
+.agent-card:hover::before {
+  opacity: 1;
+}
+
+/* Light mode agent card — solid white, clear border */
+.light .agent-card {
+  background: #ffffff;
+  border-color: rgba(14, 100, 180, 0.18);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 95, 163, 0.08);
+}
+
+.light .agent-card::before {
+  background: linear-gradient(90deg, transparent, rgba(0, 95, 163, 0.3), transparent);
+}
+
+.light .agent-card:hover {
+  border-color: rgba(0, 95, 163, 0.35);
+  box-shadow: 0 4px 20px rgba(0, 95, 163, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================================
+   NEON ACCENTS
+   ============================================================ */
+.neon-border {
+  border: 1px solid var(--neon-strong);
+  box-shadow: 0 0 0 1px var(--neon-dim), inset 0 0 20px var(--neon-dim);
+}
+
+.neon-text {
+  color: var(--neon);
+  text-shadow: 0 0 20px var(--neon-glow);
+}
+
+.neon-glow-box {
+  box-shadow: var(--glow-neon);
+}
+
+/* ============================================================
+   HOLO GRADIENT BORDER (ring effect)
+   ============================================================ */
+.holo-ring {
+  position: relative;
+}
+
+.holo-ring::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.5), rgba(124, 58, 237, 0.35), rgba(0, 212, 255, 0.2));
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+/* ============================================================
+   STATUS INDICATORS
+   ============================================================ */
+.status-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--emerald);
+  letter-spacing: 0.08em;
+}
+
+.status-live::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--emerald);
+  box-shadow: 0 0 0 2px rgba(0, 255, 163, 0.2);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+.status-processing::before {
+  background: var(--neon);
+  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+}
+
+.status-warning::before {
+  background: var(--amber);
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+}
+
+.status-risk::before {
+  background: var(--rose);
+  box-shadow: 0 0 0 2px rgba(251, 75, 110, 0.2);
+  animation: statusBlink 1s ease-in-out infinite;
+}
+
+/* ============================================================
+   MONO FONT UTILITY (terminal feel)
+   ============================================================ */
+.mono {
+  font-family: "JetBrains Mono", "Fira Mono", monospace;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+.thin-scroll::-webkit-scrollbar { width: 5px; }
+.thin-scroll::-webkit-scrollbar-track { background: transparent; }
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: var(--neon-dim);
+  border-radius: 999px;
+}
+.thin-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-glow);
+}
+
+/* Light mode scrollbar — visible grey */
+.light .thin-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 95, 163, 0.25);
+}
+.light .thin-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 95, 163, 0.4);
+}
+
+/* ============================================================
+   SKELETON LOADING
+   ============================================================ */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: rgba(0, 212, 255, 0.05);
+  border-radius: 6px;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.08), transparent);
+  animation: shimmer 1.6s infinite;
+}
+
+/* Light mode skeleton */
+.light .skeleton {
+  background: rgba(0, 95, 163, 0.07);
+}
+.light .skeleton::after {
+  background: linear-gradient(90deg, transparent, rgba(0, 95, 163, 0.12), transparent);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+.agent-pulse {
+  animation: agentPulse 3s ease-in-out infinite;
+}
+
+.float-soft {
+  animation: floatSoft 6s ease-in-out infinite;
+}
+
+.scan-line {
+  animation: scanMove 8s linear infinite;
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--neon);
+  animation: typing 3s steps(40, end) forwards, blinkCaret 0.75s step-end infinite;
+}
+
+/* Agent orbit ring */
+.orbit-ring {
+  position: relative;
+  border-radius: 50%;
+}
+.orbit-ring::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  border-top-color: var(--neon);
+  border-right-color: var(--violet);
+  animation: orbit 4s linear infinite;
+}
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+@keyframes agentPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.20); }
+  50%       { box-shadow: 0 0 0 8px rgba(0, 212, 255, 0); }
+}
+
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.65; transform: scale(0.88); }
+}
+
+@keyframes statusBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+@keyframes scanMove {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(200vh); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes blinkCaret {
+  0%, 100% { border-color: var(--neon); }
+  50%       { border-color: transparent; }
+}
+
+@keyframes nodePulse {
+  0%, 100% { r: 3; opacity: 0.6; }
+  50%       { r: 5; opacity: 1; }
+}
+
+@keyframes lineFlow {
+  0%   { stroke-dashoffset: 100; opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ============================================================
+   UNIVERSAL TRANSITION
+   ============================================================ */
+button, input, textarea, select, a, .agent-card, .glass {
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease,
+    opacity 160ms ease;
+}
+
+/* ============================================================
+   LIA CHAT COMPANION — Copilot-Style Chat Panel
+   ============================================================ */
+
+/* Message slide-in animations */
+@keyframes liaMessageIn {
+  from { opacity: 0; transform: translateX(-18px) scale(0.97); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes userMessageIn {
+  from { opacity: 0; transform: translateX(18px) scale(0.97); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes typingBounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40%           { transform: translateY(-6px); }
+}
+
+@keyframes chatGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(94, 234, 212, 0.15); }
+  50%       { box-shadow: 0 0 0 6px rgba(94, 234, 212, 0); }
+}
+
+.lia-message-in {
+  animation: liaMessageIn 0.36s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.user-message-in {
+  animation: userMessageIn 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.card-fade-up {
+  animation: cardFadeUp 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Typing indicator dots */
+.typing-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #5eead4;
+  animation: typingBounce 1.3s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.18s; }
+.typing-dot:nth-child(3) { animation-delay: 0.36s; }
+
+/* LIA Avatar glow pulse */
+.lia-avatar-pulse {
+  animation: chatGlow 2.5s ease-in-out infinite;
+}
+
+/* Music card hover */
+.music-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.music-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(94, 234, 212, 0.15);
+  border-color: rgba(94, 234, 212, 0.4) !important;
+}
+
+/* Drama card hover */
+.drama-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.drama-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(196, 181, 253, 0.2);
+  border-color: rgba(196, 181, 253, 0.4) !important;
+}
+
+/* Suggestion chip pulse on hover */
+.suggestion-chip {
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+.suggestion-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(94, 234, 212, 0.2);
+}
+
+/* Chat input focus glow */
+.chat-input:focus {
+  outline: none;
+  border-color: rgba(94, 234, 212, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.1);
+}
+
+/* Chat panel sticky layout */
+.chat-panel-sticky {
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Wellness snapshot fade in */
+.wellness-snapshot {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* ============================================================
+   LIGHT MODE — COMPREHENSIVE OVERRIDES
+   Fix all hardcoded dark-only rgba values
+   Designed for maximum readability (older readers / judges)
+   ============================================================ */
+
+/* ── Typography scale — bigger for accessibility ── */
+.light h1 { font-size: 2.1rem !important; }
+.light h2 { font-size: 1.4rem !important; }
+.light h3 { font-size: 1.1rem !important; }
+.light p, .light span, .light td, .light li { color: var(--text-secondary); }
+.light strong { color: var(--text-primary); }
+
+/* ── Sidebar ── */
+.light #lia-sidebar {
+  background: #edf3fc !important;
+  border-right: 1px solid rgba(0, 95, 163, 0.18) !important;
+}
+
+/* ── Mobile overlay backdrop (invisible on light) ── */
+.light .mobile-overlay-bg {
+  background: rgba(200, 220, 240, 0.8) !important;
+}
+
+/* ── Theme toggle + logout button hover ── */
+.light #theme-toggle-btn:hover,
+.light #topbar-theme-toggle:hover {
+  background: rgba(0, 95, 163, 0.08) !important;
+}
+
+/* ── Sidebar nav hover ── */
+.light nav a:hover {
+  background: rgba(0, 95, 163, 0.08) !important;
+}
+
+/* ── Tag/badge near-transparent fixes ── */
+/* bg-white/3, bg-white/7, bg-white/8 → visible on light */
+.light [class*='bg-white/'] {
+  background-color: rgba(240, 246, 255, 0.9) !important;
+}
+/* bg-black/15 → white on light */
+.light [class*='bg-black/'] {
+  background-color: rgba(230, 240, 255, 0.8) !important;
+}
+
+/* ── Text overrides: white text → dark on light ── */
+.light [class*='text-white'] {
+  color: var(--text-primary) !important;
+}
+.light .text-teal-200 { color: #0369a1 !important; }
+.light .text-teal-50  { color: #0a1929 !important; }
+.light .text-amber-50 { color: #1a0a00 !important; }
+.light .text-amber-200 { color: #92400e !important; }
+
+/* ── Table hover rows ── */
+.light .hover\:bg-white\/5:hover {
+  background-color: rgba(0, 95, 163, 0.06) !important;
+}
+
+/* ── Progress bar track — near-transparent fix ── */
+.light .h-1\.5 {
+  background: rgba(0, 95, 163, 0.12) !important;
+}
+
+/* ── Demo sequence / output cards (rgba dark bg) ── */
+.light [style*='rgba(255,255,255,0.03)'],
+.light [style*='rgba(255, 255, 255, 0.03)'] {
+  background: rgba(240, 246, 255, 0.85) !important;
+  border-color: rgba(0, 95, 163, 0.15) !important;
+}
+
+/* ── Planner/Wellness chat areas ── */
+.light [style*='rgba(2,11,24'],
+.light [style*='rgba(0,0,0,0.2'],
+.light [style*='rgba(0,0,0,0.4'] {
+  background: rgba(235, 244, 255, 0.9) !important;
+}
+
+/* ── Input fields ── */
+.light input[class*='bg-transparent'],
+.light input {
+  color: var(--text-primary) !important;
+  background: #ffffff !important;
+}
+.light input::placeholder {
+  color: #7a9bbf !important;
+  opacity: 1;
+}
+
+/* ── Chat message bubbles ── */
+.light .lia-message-in > div > div[style],
+.light .user-message-in > div {
+  color: var(--text-primary) !important;
+}
+
+/* ── Mono/code utility ── */
+.light .mono {
+  color: var(--text-secondary);
+}
+
+/* ── Bottom credential hint boxes ── */
+.light [style*='rgba(255,255,255,0.03)'] p,
+.light [style*='rgba(255,255,255,0.03)'] span {
+  color: var(--text-secondary) !important;
+}
+
+/* ── Status live dot label ── */
+.light .status-live {
+  color: var(--emerald) !important;
+}
+
+/* ── neon-text on light ── */
+.light .neon-text {
+  color: var(--neon) !important;
+  text-shadow: none !important;
+}
+
+/* ── Glass panels ── */
+.light .glass,
+.light .glass-strong {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-color: rgba(0, 95, 163, 0.18) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ── Chip / suggestion buttons ── */
+.light .suggestion-chip {
+  background: rgba(0, 95, 163, 0.08) !important;
+  border-color: rgba(0, 95, 163, 0.22) !important;
+  color: #005fa3 !important;
+}
+
+/* ── Chat input border ── */
+.light .chat-input {
+  background: #ffffff !important;
+  color: var(--text-primary) !important;
+  border-color: rgba(0, 95, 163, 0.25) !important;
+}
+.light .chat-input:focus {
+  border-color: rgba(0, 95, 163, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(0, 95, 163, 0.10) !important;
+}
+
+/* ── Planner / Wellness card panels with dark inline styles ── */
+.light [style*='rgba(94,234,212,0.04)'],
+.light [style*='rgba(94, 234, 212, 0.04)'] {
+  background: rgba(224, 242, 254, 0.6) !important;
+}
+.light [style*='rgba(94,234,212,0.06)'],
+.light [style*='rgba(94, 234, 212, 0.06)'] {
+  background: rgba(224, 242, 254, 0.7) !important;
+}
+.light [style*='rgba(94,234,212,0.07)'],
+.light [style*='rgba(94, 234, 212, 0.07)'] {
+  background: rgba(224, 242, 254, 0.8) !important;
+}
+.light [style*='rgba(94,234,212,0.08)'],
+.light [style*='rgba(94, 234, 212, 0.08)'] {
+  background: rgba(224, 242, 254, 0.8) !important;
+}
+.light [style*='rgba(124,58,237,0.08)'],
+.light [style*='rgba(124, 58, 237, 0.08)'] {
+  background: rgba(237, 233, 254, 0.7) !important;
+}
+
+/* ── Today event cards ── */
+.light [style*='rgba(251,113,133,0.07)'] {
+  background: rgba(254, 226, 226, 0.7) !important;
+  border-color: rgba(190, 18, 60, 0.25) !important;
+}
+
+/* ── Premium / Pro Plan card ── */
+.light [style*='rgba(251,191,36,0.05)'] {
+  background: rgba(255, 251, 235, 0.9) !important;
+}
+
+/* ── Music card ── */
+.light .music-card {
+  background: rgba(224, 242, 254, 0.7) !important;
+  border-color: rgba(0, 95, 163, 0.20) !important;
+}
+.light .music-card:hover {
+  border-color: rgba(0, 95, 163, 0.4) !important;
+  box-shadow: 0 6px 20px rgba(0, 95, 163, 0.12) !important;
+}
+
+/* ── Drama card ── */
+.light .drama-card {
+  background: rgba(237, 233, 254, 0.65) !important;
+  border-color: rgba(91, 33, 182, 0.20) !important;
+}
+.light .drama-card:hover {
+  border-color: rgba(91, 33, 182, 0.4) !important;
+  box-shadow: 0 6px 20px rgba(91, 33, 182, 0.12) !important;
+}
+
+/* ── Login page hero overlay (dark gradient → lighter) ── */
+.light .login-hero-overlay {
+  background: linear-gradient(135deg, rgba(240,246,255,0.88) 0%, rgba(224,238,255,0.65) 100%) !important;
+}
+
+/* ── Typing indicator ── */
+.light .typing-dot {
+  background: var(--neon) !important;
+}
+
+/* ── Force all inline style dark text to be readable ── */
+.light [style*='color: #e8f4ff'],
+.light [style*="color: '#e8f4ff'"] {
+  color: var(--text-primary) !important;
+}
+.light [style*='color: rgba(139, 173, 200'],
+.light [style*='color: var(--text-muted)'] {
+  color: #4a6580 !important;
+}
