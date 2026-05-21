@@ -34,6 +34,11 @@ def health() -> dict:
     return {"status": "online", "agents": ["planner", "meeting", "learning", "wellness"]}
 
 
+@app.get("/")
+def root() -> dict:
+    return health()
+
+
 app.include_router(auth_routes.router)
 app.include_router(meeting.router, dependencies=[Depends(require_active_user)])
 app.include_router(meeting_intelligence_routes.router, dependencies=[Depends(require_active_user)])
